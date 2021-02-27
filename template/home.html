@@ -81,17 +81,24 @@
         </div>
       </div>
     </nav>
-
+    {% if posts %}
     <div
       class="text-center"
       style="margin-top: 100px; margin-bottom: 50px; font-size: 72px"
     >
       Blog Yazıları
     </div>
-
-    {% for post in posts %}
+    {% else %}
+    <div
+      role="alert"
+      class="alert alert-danger text-center"
+      style="max-width: 60%; margin: 100px auto 0 auto"
+    >
+      Postları getirirken bir sıkıntı oluştu.
+    </div>
+    {% endif %} {% for post in posts %}
     <!--<a class="text text-dark" style='text-decoration: none' href='{{post.title}}'>-->
-      <div class="card" style="max-width: 80%; margin: 100px auto 100px auto">
+    <div class="card" style="max-width: 80%; margin: 100px auto 100px auto">
       <img src="{{post.img}}" class="card-img-top" alt="Post fotoğrafı" />
       <div class="card-body">
         <h5 class="card-title fs-1">{{post.title}}</h5>
@@ -127,7 +134,7 @@
       </div>
     </div>
     <!--</a>-->
-    
+
     {% endfor %}
 
     <script
